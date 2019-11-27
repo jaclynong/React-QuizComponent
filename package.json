@@ -3,6 +3,7 @@
   "version": "0.1.1",
   "private": true,
   "dependencies": {
+    "generator-liferay-js": "^2.15.1",
     "react": "16.2.0",
     "react-dom": "16.2.0",
     "react-scripts": "3.2.0"
@@ -18,7 +19,9 @@
     "test:module5": "./node_modules/.bin/cross-env CI=true react-scripts test --env=jsdom --noStackTrace module5 || true",
     "test:module6": "./node_modules/.bin/cross-env CI=true react-scripts test --env=jsdom --noStackTrace module6 || true",
     "test:module7": "./node_modules/.bin/cross-env CI=true react-scripts test --env=jsdom --noStackTrace module7 || true",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build:liferay": "lnbs-build",
+    "deploy:liferay": "npm run build:liferay && lnbs-deploy"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -47,6 +50,28 @@
     "enzyme-adapter-react-16": "1.1.1",
     "esprima": "4.0.0",
     "react-test-renderer": "16.3.1",
-    "sinon": "5.0.1"
+    "sinon": "5.0.1",
+    "liferay-npm-build-support": "^2.15.1",
+    "liferay-npm-bundler": "^2.15.1",
+    "liferay-npm-bundler-preset-create-react-app": "^2.15.1"
+  },
+  "portlet": {
+    "com.liferay.portlet.display-category": "category.sample",
+    "javax.portlet.name": "buildaquizcomponentwithreact",
+    "javax.portlet.security-role-ref": "power-user,user",
+    "javax.portlet.resource-bundle": "content.Language",
+    "com.liferay.portlet.instanceable": true
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
